@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 SRCS = main.c parser.c executor.c
 OBJS =$(SRCS:.c=.o)
-TARGET = myshell
+TARGET = myUnix
 
 all: $(TARGET)
 
