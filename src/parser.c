@@ -17,6 +17,19 @@ int parse_line(char *line, command_t *cmd) {
         if (strcmp(tok, "<") == 0) {
             tok = strtok(NULL, " \t\r\n");
             if (tok) cmd ->infile = strdup(tok);
+        } else if (strcmp(tok, ">") == 0) {
+            tok = strtok(NULL, " \t\r\n");
+            if (tok) { cmd ->outfile = strdup(tok); cmd-> append = 0; }
+        } else if (strcmp(tok, ">>") == 0) {
+            tok = strtok(NULL, " \t\r\n");
+            if (tok) { cmd->outfile = strdup(tok); cmd->append = 1;}
+        } else if (strcmp(tok, "&") == 0) {
+            cmd->background = 1;
+        } else {
+            cmd->argv[argc++] = strdup(tok);
         }
+        tok = str(NULL, " \t\r\n");
     }
+    cmd->argv[argc] = NULL;
+    return 0;
 }
