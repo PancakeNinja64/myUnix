@@ -34,7 +34,7 @@ int main(void){
         //free strdup'd fields in parse_line 
         for (int i=0; cmd.argv[i]; i++) free(cmd.argv[i]);
         if (cmd.infile) free(cmd.infile);
-        if (cmd.oufile) free(cmd.outfile);
+        if (cmd.outfile) free(cmd.outfile);
     }
     free(line);
     return 0;
