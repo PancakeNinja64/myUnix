@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g
+SRCS = main.c parser.c executor.c
+OBJS =$(SRCS:.c=.o)
+TARGET = myshell
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
+
+clean:
+	rm -f $(OBJS) $(TARGET)
